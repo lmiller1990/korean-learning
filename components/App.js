@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {View, Text, StyleSheet, Button} from 'react-native'
+
 import CharacterViewport from './CharacterViewport'
 import CharacterSetSelector from './CharacterSetSelector'
 
@@ -39,7 +40,7 @@ class App extends Component {
 	}
 
 	setCharacterSet(type) {
-		this.setState({ selectedSet: type })
+		this.setState({ characterIndex: 0, selectedSet: type })
 	}
 
 	nextCharacter() {
@@ -52,12 +53,16 @@ class App extends Component {
 	}
 
 	render() {
-		const characterViewport = this.state.selectedSet 
-			? (<CharacterViewport 
-					characterSet={this.state.sets[this.state.selectedSet]} 
-					characterIndex={this.state.characterIndex}
-					showAnswer={this.state.showAnswer}
-				/>)
+		const characterView = this.state.selectedSet
+			? <View>
+					<CharacterViewport 
+						characterSet={this.state.sets[this.state.selectedSet]} 
+						characterIndex={this.state.characterIndex}
+						showAnswer={this.state.showAnswer}
+					/>
+					<Button title="Next" onPress={this.nextCharacter}/>
+					<Button title="Toggle Answer" onPress={this.showAnswer}/>
+				</View>
 			: null
 
 		return (
@@ -65,9 +70,8 @@ class App extends Component {
 				<CharacterSetSelector 
 					setNames={this.state.setNames} 
 					setCharacterSet={this.setCharacterSet} />
-					{ characterViewport }
-				<Button title="Next" onPress={this.nextCharacter}/>
-				<Button title="Toggle Answer" onPress={this.showAnswer}/>
+
+				{characterView}
 			</View>
 		)
 	}

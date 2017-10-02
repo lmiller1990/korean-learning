@@ -5,12 +5,13 @@ import Answer from './Answer'
 
 class CharacterViewport extends Component {
 	render() {
-		const { consonants, characterIndex } = this.props
-		const character = consonants[characterIndex]
+		const { characterSet, characterIndex } = this.props
+		const character = characterSet[characterIndex]
 
 		return (
 			<View>
 				<Character character={character} />
+
 				<Answer 
 					character={character} 
 					showAnswer={this.props.showAnswer} 

@@ -1,10 +1,12 @@
+import shuffle from 'lodash/shuffle'
+
 const CONSONANTS = 'CONSONANTS'
 const VOWELS = 'VOWELS'
 
 export const setNames = [ CONSONANTS, VOWELS ]
 
 export const sets = {
-	[CONSONANTS]: [ 
+	[CONSONANTS]: shuffle([ 
 		{ id: 0, character: 'ㄱ', sounds: ['g', 'k'], entry: '(R)' },
 		{ id: 1, character: 'ㄲ', sounds: ['kk'], entry: '(shift+R)' },
 		{ id: 2, character: 'ㄴ', sounds: ['n'], entry: '(S)' },	
@@ -24,8 +26,8 @@ export const sets = {
 		{ id: 16, character: 'ㅌ', sounds: ['t'], entry: '(X)' },	
 		{ id: 17, character: 'ㅍ', sounds: ['p'], entry: '(V)' },	
 		{ id: 17, character: 'ㅎ', sounds: ['h'], entry: '(G)' },	
-	],
-	[VOWELS]: [
+	]),
+	[VOWELS]: shuffle([
 		{ id: 18, character: 'ㅏ', sounds: ['a'], entry: '(K)' },
 		{ id: 19, character: 'ㅒ', sounds: ['ae'], entry: '(O)' },
 		{ id: 20, character: 'ㅑ', sounds: ['l'], entry: '(l)' },	
@@ -47,7 +49,7 @@ export const sets = {
 		{ id: 36, character: 'ㅡ', sounds: ['eu'], entry: '(M)' },	
 		{ id: 37, character: 'ㅢ', sounds: ['ui'], entry: '(M+L)' },	
 		{ id: 38, character: 'ㅣ', sounds: ['i'], entry: '(L)' },	
-	]
+	])
 }
 
 console.log(sets)

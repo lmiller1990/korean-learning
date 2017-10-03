@@ -3,9 +3,9 @@ import {View, Text, StyleSheet, Button} from 'react-native'
 
 import CharacterViewport from './CharacterViewport'
 import CharacterSetSelector from './CharacterSetSelector'
+import Login from './Login'
 
 import * as data from './data'
-import shuffle from 'lodash/shuffle'
 
 const styles = StyleSheet.create({
 	container: {
@@ -27,7 +27,6 @@ class App extends Component {
 			sets: data.sets,
 			selectedSet: null,
 			showAnswer: false,
-			characterSet: 'consonants'
 		}
 
 		this.nextCharacter = this.nextCharacter.bind(this)
@@ -67,6 +66,7 @@ class App extends Component {
 
 		return (
 			<View style={styles.container}>
+				<Login />
 				<CharacterSetSelector 
 					setNames={this.state.setNames} 
 					setCharacterSet={this.setCharacterSet} />

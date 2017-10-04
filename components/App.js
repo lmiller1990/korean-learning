@@ -3,9 +3,15 @@ import {View, Text, StyleSheet, Button} from 'react-native'
 
 import CharacterViewport from './CharacterViewport'
 import CharacterSetSelector from './CharacterSetSelector'
-import Login from './Login'
+import Signup from './Signup'
+import Signin from './Signin'
 
 import * as data from './data'
+
+import Firebase from 'firebase/app'
+import config from '../config/firebase'
+
+Firebase.initializeApp(config)
 
 const styles = StyleSheet.create({
 	container: {
@@ -66,7 +72,8 @@ class App extends Component {
 
 		return (
 			<View style={styles.container}>
-				<Login />
+				<Signup />
+				<Signin />
 				<CharacterSetSelector 
 					setNames={this.state.setNames} 
 					setCharacterSet={this.setCharacterSet} />
